@@ -1,0 +1,19 @@
+<div class="container site-container pb-5">
+    <div class="listing-table">
+        <div class="listing-table__item d-flex justify-content-between align-items-center p-3"
+            *ngFor="let domain of domains">
+            <div class="listing-table__left">
+                <a href="{{domain.domainName}}" class="listing-table__text text-decoration-none text-white d-block">{{domain.domainName}}</a>
+                <span class="bg-primary bg-gradient listing-table__label rounded"
+                    title="Domain Type">{{domain.errorMessage}}</span>
+                    <br>
+                <span [class.bg-danger]="domain.domainStatus!=='up'"
+                    class="bg-success bg-gradient listing-table__label rounded" title="Last Ping">{{domain.updatedAt |
+                    date : 'full'}}</span>
+            </div>
+            <div class="listing-table__right">
+                <span class="listing-table__text me-2">{{domain.errorStatus }}</span>
+            </div>
+        </div>
+    </div>
+</div>
